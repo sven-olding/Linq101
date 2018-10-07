@@ -1,7 +1,7 @@
-﻿using System;
+﻿using LinqLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using LinqLibrary;
 
 namespace ConsoleUI
 {
@@ -11,7 +11,9 @@ namespace ConsoleUI
         {
             List<Person> people = ListManager.LoadSampleData();
 
-            foreach(var person in people)
+            people = people.OrderBy(x => x.LastName).ToList();
+
+            foreach (var person in people)
             {
                 Console.WriteLine($"{person.FullName} ({person.Birthday.ToShortDateString()}): Experience {person.YearsOfExperience} years");
             }

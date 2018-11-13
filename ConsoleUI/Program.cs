@@ -23,7 +23,22 @@ namespace ConsoleUI
                 Console.WriteLine($"{person.FullName} ({person.Birthday.ToShortDateString()}): Experience {person.YearsOfExperience} years");
             }
 
+            string stringNotEmpty = "hello extension method";
+
+            Console.WriteLine(stringNotEmpty.HasValue());
+
+            string stringEmpty = string.Empty;
+            Console.WriteLine(stringEmpty.HasValue());
+
             Console.ReadLine();
+        }
+    }
+
+    public static class StringExtensions
+    {
+        public static bool HasValue(this string value)
+        {
+            return !string.IsNullOrEmpty(value);
         }
     }
 }

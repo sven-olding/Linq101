@@ -30,6 +30,17 @@ namespace ConsoleUI
             string stringEmpty = string.Empty;
             Console.WriteLine(stringEmpty.HasValue());
 
+            var integers = new List<int> { 1, 2, 3, 4, 4, 5 };
+            Console.WriteLine(integers.First(x => x > 2));
+
+            Console.WriteLine(integers.Last());
+
+            // Console.WriteLine(integers.SingleOrDefault(x=>x==4));
+
+            var emptyList = new List<string>();
+
+            Console.WriteLine(emptyList.DefaultIfEmpty("null string").First());
+
             Console.ReadLine();
         }
     }

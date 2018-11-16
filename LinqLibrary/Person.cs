@@ -16,5 +16,7 @@ namespace LinqLibrary
                 return $"{LastName}, {FirstName}";
             }
         }
+
+        public String Gender { get; set; }
     }
 }

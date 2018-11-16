@@ -22,7 +22,7 @@ namespace ConsoleUI
             //{
             //    Console.WriteLine($"{person.FullName} ({person.Birthday.ToShortDateString()}): Experience {person.YearsOfExperience} years");
             //}
-
+            Console.WriteLine("selection example");
             var selectedPeople = from p in people
                      orderby p.LastName descending, p.YearsOfExperience descending
                      where p.YearsOfExperience >= 25
@@ -31,8 +31,21 @@ namespace ConsoleUI
             {
                 Console.WriteLine($"{person.FullName} ({person.Birthday.ToShortDateString()}): Experience {person.YearsOfExperience} years");
             }
+            Console.WriteLine("#################");
+            Console.WriteLine("Grouping example");
+            var groupedList = from p in people
+                             group p by p.Gender;
+            foreach(var group in groupedList)
+            {
+                Console.WriteLine(group.Key);
+                Console.WriteLine("========================");
+                foreach(var person in group)
+                {
+                    Console.WriteLine($"{person.FullName} ({person.Birthday.ToShortDateString()}): Experience {person.YearsOfExperience} years");
+                }
 
-
+            }
+            Console.WriteLine("##############");
             string stringNotEmpty = "hello extension method";
 
             Console.WriteLine(stringNotEmpty.HasValue());
